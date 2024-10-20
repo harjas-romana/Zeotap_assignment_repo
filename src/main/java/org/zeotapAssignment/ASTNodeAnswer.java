@@ -1,5 +1,4 @@
 package org.zeotapAssignment;
-
 import java.util.*;
 import org.json.JSONObject;
 
@@ -108,8 +107,6 @@ class ASTNode {
                 token.setLength(0);
             }
         }
-
-        // Process the last token if it exists
         if (token.length() > 0) {
             String finalToken = token.toString().trim();
             // Check if the token is a condition or a single attribute
@@ -176,7 +173,7 @@ class ASTNode {
             boolean rightResult = evaluateRule(ast.getRight(), data);
             return applyOperator(ast.getValue(), leftResult, rightResult);
         }
-        return false; // Should not reach here
+        return false;
     }
 
     private boolean evaluateCondition(Object value, Map<String, Object> data) {
@@ -214,7 +211,7 @@ class ASTNode {
         } else if (operator.equals("=")) {
             return attributeValue.toString().equals(conditionValue);
         }
-        return false; // Should not reach here
+        return false;
     }
 
     private boolean applyOperator(Object operator, boolean leftResult, boolean rightResult) {
@@ -223,11 +220,11 @@ class ASTNode {
         } else if (operator.equals("OR")) {
             return leftResult || rightResult;
         }
-        return false; // Should not reach here
+        return false;
     }
 }
 
-public class Main {
+public class ASTNodeAnswer {
     public static void main(String[] args) {
         ASTNode astNode = new ASTNode("", null, null, null);
 
